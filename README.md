@@ -59,3 +59,8 @@ A Windows batch-based deployment toolkit designed to streamline application setu
 3. Run the batch script as Administrator:
    ```bat
    @echo off.txt
+4. Follow the interactive menu to install applications, drivers, or run utilities.
+
+⚠️ Disclaimer
+This script modifies system configuration and installs third-party software.
+Use at your own risk. Always review configuration files before running.
