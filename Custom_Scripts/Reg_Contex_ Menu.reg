@@ -1,0 +1,151 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Custom Scripts] 
+"MUIVerb"="Scripts"
+"Icon"="cmd.exe"
+"ExtendedSubCommandsKey"="*\\ContextMenus\\Custom Scripts"
+
+[HKEY_CLASSES_ROOT\Directory\shell\Custom Scripts] 
+"MUIVerb"="Scripts"
+"Icon"="cmd.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\Custom Scripts"
+
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\Custom Scripts]
+"MUIVerb"="Scripts"
+"Icon"="cmd.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\Custom Scripts"
+
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\moveall]
+"MUIVerb"="Move All files 2 folder"
+"AppliesTo"="NOT (System.ItemPathDisplay:=\"C:\\Users\" OR System.ItemPathDisplay:=\"C:\" OR System.ItemPathDisplay:=\"C:\\ProgramData\" OR System.ItemPathDisplay:=\"C:\\Windows\" OR System.ItemPathDisplay:=\"C:\\Windows\\System32\" OR System.ItemPathDisplay:=\"C:\\Program Files\" OR System.ItemPathDisplay:=\"C:\\Program Files (x86)\")"
+
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\moveall\command]
+@="C:\\scripts\\moveall.bat\"
+
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\xcopy]
+"MUIVerb"="Copy folder Structure tree"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\xcopy\command]
+@="\"C:\\scripts\\Xcopy.bat\" \"%1\""
+
+[HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\move]
+"MUIVerb"="Move File 2 folder"
+"AppliesTo"="NOT (System.ItemPathDisplay:=\"C:\\Users\" OR System.ItemPathDisplay:=\"C:\" OR System.ItemPathDisplay:=\"C:\\ProgramData\" OR System.ItemPathDisplay:=\"C:\\Windows\" OR System.ItemPathDisplay:=\"C:\\Windows\\System32\" OR System.ItemPathDisplay:=\"C:\\Program Files\" OR System.ItemPathDisplay:=\"C:\\Program Files (x86)\")"
+
+
+[HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\move\command]
+@="\"C:\\scripts\\move.bat\" \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\searchfile]
+"MUIVerb"="Search folder for file"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\searchfile\command]
+@="\"C:\\scripts\\SearchFile.bat\" \"%1\""
+
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\powershell_here]
+@="PowerShell Here"
+"Position"="Bottom"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\powershell_here\command]
+@="C:\\\\Windows\\\\system32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe -NoExit -NoProfile -Command Set-Location -LiteralPath '%V'"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\renfldr]
+@="Rename folder - Remove unwanted strgs"
+"AppliesTo"="NOT (System.ItemPathDisplay:=\"C:\\Users\" OR System.ItemPathDisplay:=\"C:\\" OR System.ItemPathDisplay:=\"C:\\ProgramData\" OR System.ItemPathDisplay:=\"C:\\Windows\" OR System.ItemPathDisplay:=\"C:\\Windows\\System32\" OR System.ItemPathDisplay:=\"C:\\Program Files\" OR System.ItemPathDisplay:=\"C:\\Program Files (x86)\")"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\renfldr\command]
+@="\"C:\\scripts\\renfldr.bat\" \"%1\""
+
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\renallfldr]
+~"MUIVerb"="Rename All folder & Files - Remove unwanted strgs"
+~"AppliesTo"="NOT (System.ItemPathDisplay:=\"C:\\Users\" OR System.ItemPathDisplay:=\"C:\\" OR System.ItemPathDisplay:=\"C:\\ProgramData\" OR System.ItemPathDisplay:=\"C:\\Windows\" OR System.ItemPathDisplay:=\"C:\\Windows\\System32\" OR System.ItemPathDisplay:=\"C:\\Program Files\" OR System.ItemPathDisplay:=\"C:\\Program Files (x86)\")"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\renallfldr\command]
+@="\"C:\\scripts\\renallfldr.bat\" \"%V\""
+
+[HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\renfile]
+@="Rename file - Remove unwanted strgs"
+"AppliesTo"="NOT (System.ItemPathDisplay:=\"C:\\Users\" OR System.ItemPathDisplay:=\"C:\\" OR System.ItemPathDisplay:=\"C:\\ProgramData\" OR System.ItemPathDisplay:=\"C:\\Windows\" OR System.ItemPathDisplay:=\"C:\\Windows\\System32\" OR System.ItemPathDisplay:=\"C:\\Program Files\" OR System.ItemPathDisplay:=\"C:\\Program Files (x86)\")"
+
+[HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\renfile\command]
+@="\"C:\\scripts\\renfile.bat\" \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\cmd]
+@="CMD Here"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\cmd\command]
+@="cmd.exe /s /k pushd \"%V\""
+
+
+[HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\TakeOwnership]
+@="Take Ownership"
+"Extended"=-
+"HasLUAShield"=""
+"NoWorkingDirectory"=""
+"NeverDefault"=""
+
+[HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\TakeOwnership\command]
+@="powershell -windowstyle hidden -command \"Start-Process cmd -ArgumentList '/c takeown /f \\\"%1\\\" && icacls \\\"%1\\\" /grant *S-1-3-4:F /t /c /l' -Verb runAs\""
+"IsolatedCommand"= "powershell -windowstyle hidden -command \"Start-Process cmd -ArgumentList '/c takeown /f \\\"%1\\\" && icacls \\\"%1\\\" /grant *S-1-3-4:F /t /c /l' -Verb runAs\""
+
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\TakeOwnership]
+@="Take Ownership"
+"AppliesTo"="NOT (System.ItemPathDisplay:=\"C:\\Users\" OR System.ItemPathDisplay:=\"C:\\ProgramData\" OR System.ItemPathDisplay:=\"C:\\Windows\" OR System.ItemPathDisplay:=\"C:\\Windows\\System32\" OR System.ItemPathDisplay:=\"C:\\Program Files\" OR System.ItemPathDisplay:=\"C:\\Program Files (x86)\")"
+"Extended"=-
+"HasLUAShield"=""
+"NoWorkingDirectory"=""
+"Position"="middle"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\TakeOwnership\command]
+@="powershell -windowstyle hidden -command \"Start-Process cmd -ArgumentList '/c takeown /f \\\"%1\\\" /r /d y && icacls \\\"%1\\\" /grant *S-1-3-4:F /t /c /l /q' -Verb runAs\""
+"IsolatedCommand"="powershell -windowstyle hidden -command \"Start-Process cmd -ArgumentList '/c takeown /f \\\"%1\\\" /r /d y && icacls \\\"%1\\\" /grant *S-1-3-4:F /t /c /l /q' -Verb runAs\""
+
+
+
+[HKEY_CLASSES_ROOT\Drive\shell\runas]
+@="Take Ownership"
+"Extended"=-
+"HasLUAShield"=""
+"NoWorkingDirectory"=""
+"Position"="middle"
+"AppliesTo"="NOT (System.ItemPathDisplay:=\"C:\\\")"
+
+[HKEY_CLASSES_ROOT\Drive\shell\runas\command]
+@="cmd.exe /c takeown /f \"%1\\\" /r /d y && icacls \"%1\\\" /grant *S-1-3-4:F /t /c"
+"IsolatedCommand"="cmd.exe /c takeown /f \"%1\\\" /r /d y && icacls \"%1\\\" /grant *S-1-3-4:F /t /c"
+
+[HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\GameTile]
+@="Create Custom Game Tile"
+"AppliesTo"="NOT (System.ItemPathDisplay:=\"C:\\Users\" OR System.ItemPathDisplay:=\"C:\\" OR System.ItemPathDisplay:=\"C:\\ProgramData\" OR System.ItemPathDisplay:=\"C:\\Windows\" OR System.ItemPathDisplay:=\"C:\\Windows\\System32\" OR System.ItemPathDisplay:=\"C:\\Program Files\" OR System.ItemPathDisplay:=\"C:\\Program Files (x86)\")"
+
+[HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\GameTile\command]
+@="\"C:\\scripts\\GameTile.bat\" \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\allcaps]
+"MUIVerb"="Folder to All Caps"
+"AppliesTo"="NOT (System.ItemPathDisplay:=\"C:\\Users\" OR System.ItemPathDisplay:=\"C:\\" OR System.ItemPathDisplay:=\"C:\\ProgramData\" OR System.ItemPathDisplay:=\"C:\\Windows\" OR System.ItemPathDisplay:=\"C:\\Windows\\System32\" OR System.ItemPathDisplay:=\"C:\\Program Files\" OR System.ItemPathDisplay:=\"C:\\Program Files (x86)\")"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\allcaps\command]
+@="\"C:\\scripts\\allcap.bat\" \"%1\""
+
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\desktopinicreate]
+"MUIVerb"="Create custom Desktop.ini"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\desktopinicreate\command]
+@="\"C:\\scripts\\desktopinicreate.bat\" \"%1\""
+
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\DirTree]
+"MUIVerb"="Create Txt of Directory Tree"
+
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\DirTree\command]
+@="\"C:\\scripts\\DirTree.bat\" \"%1\""
+

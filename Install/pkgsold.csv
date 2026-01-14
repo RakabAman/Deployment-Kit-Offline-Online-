@@ -1,0 +1,11 @@
+MSIAfterburnerSetup.exe,/S
+hwi_702.exe,/silent /force
+RazerCentral_v7.3.32.173.exe,/s
+RzGMS_Setup_V2.0.159.80.exe,/s
+RazerCortexSetup_9.14.15.1361.exe,/silent
+K-Lite_Codec_Pack_1612_Mega.exe,/VERYSILENT /NORESTART
+parsec-windows.exe,/s 
+GoogleChromeStandaloneEnterprise64.msi,/qn
+apo_driver_setup_x64.exe,/q
+reWASD562-3821.exe,/SILENT /NORESTART
+Unlocker1-9-2.exe,/S 

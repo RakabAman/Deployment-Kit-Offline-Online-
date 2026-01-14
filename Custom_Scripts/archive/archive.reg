@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\powershell_here]
+@="PowerShell Here"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\powershell_here\command]
+@="C:\\\\Windows\\\\system32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe -NoExit -NoProfile -Command Set-Location -LiteralPath '%V'"

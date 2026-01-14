@@ -1,0 +1,27 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_CLASSES_ROOT\*\shell\Custom Scripts] 
+
+[-HKEY_CLASSES_ROOT\Directory\shell\Custom Scripts] 
+
+[-HKEY_CLASSES_ROOT\Directory\background\shell\Custom Scripts]
+
+[-HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\moveall]
+
+[-HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\xcopy]
+
+[-HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\move]
+
+[-HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\powershell_here]
+
+[-HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\renfldr]
+
+[-HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\renfile]
+
+[-HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\cmd]
+
+[-HKEY_CLASSES_ROOT\*\ContextMenus\Custom Scripts\shell\TakeOwnership]
+
+[-HKEY_CLASSES_ROOT\Directory\ContextMenus\Custom Scripts\shell\TakeOwnership]
+
+[-HKEY_CLASSES_ROOT\Drive\shell\runas]

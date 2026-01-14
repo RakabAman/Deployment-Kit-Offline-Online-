@@ -1,0 +1,9 @@
+TileDataLayer,%LOCALAPPDATA%\tiledatalayer,Start Menu Layout
+reWASD\profiles,%Public%\Documents\reWASD\profiles,reWASD Profiles
+RivaTuner\Overlay,%ProgramFiles(x86)%\RivaTuner Statistics Server\Plugins\Client,RivaTuner Overlay Layouts
+Savegames\STEAM,%Public%\Documents\steam,Steam Savegames data (unofficial)
+Savegames\UPLAY,%Public%\Documents\UPLAY,Uplay Savegames data (unofficial)
+Savegames\Saved Games,%USERPROFILE%\Saved Games, Saved Game folder Backup
+Savegames\Uplay_emu,%APPDATA%\uplay_emu,Uplay Savegame (unofficial)
+MSI\Profile,%ProgramFiles(x86)%\MSI Afterburner\Profiles,Msi Profiles
+MSI\Profile,%ProgramFiles%\Bundle\OSDServer\Profile,MSI OSD Profiles

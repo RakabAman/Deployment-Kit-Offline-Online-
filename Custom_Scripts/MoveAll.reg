@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\shell\Scripts]
+@="Move All Files to Folders"
+
+[HKEY_CLASSES_ROOT\Directory\shell\Scripts\command]
+@="\"C:\\scripts\\Move\\moveall.bat\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\Scripts]
+@="Move All Files to Folders"
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\Scripts\command]
+@="\"C:\\scripts\\Move\\moveall.bat\""

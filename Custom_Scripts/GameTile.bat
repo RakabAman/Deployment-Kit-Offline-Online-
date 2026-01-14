@@ -1,0 +1,128 @@
+@echo off
+Rem 
+rem Created By Rakab Aman	
+rem	Modified date: 31/8/2022
+rem Purpose: Create Custom Tile for Apps and Games with selectable image 
+rem
+setlocal enableDelayedExpansion
+title Create Custom Tile Shortcut for Game/App 
+echo Creating Custom Tile Shortcut for Game/App
+
+Rem Variable Setup (done)
+
+set "fnm1=%~1"
+
+rem get path to file ~dp1
+set "cl=%~dp1"
+set cl2=%cl:~0,-1%
+
+rem get file name only ~n1
+set "fnm=%~n1"
+
+rem Debug variable
+rem echo fnm1 : %fnm1%
+rem echo cl :%cl%
+rem echo Fnm : %fnm%
+
+
+REM get folder/Game name (DONE)
+
+echo.
+echo full path : %fnm1%
+rem echo cl  : %cl%
+rem Echo cl2 : %cl2%
+set fdrnm=%cl%
+
+rem remove unwanted subfolder 
+for %%G In (bin\ win64\ win32\ engine\ binaries\ data\ game\ steam\) do (set fdrnm=!fdrnm:%%G=!)
+
+rem debug Echo subfolder removed fdrnm : %fdrnm%
+
+set fdrnm=%fdrnm:~0,-1%
+rem get last folder name after removing unwanted subfolder
+for %%G In ("%fdrnm%") do set "fdrnm=%%~nxG"
+
+echo.
+echo Exrtracted Game/App Title : %fdrnm%
+Echo.
+Echo To use enter Custom Game/App Name below or Ctrl+C To cancel
+echo.
+C:\scripts\tools\editenv --prompt="Enter Custom Name: " --quiet  fdrnm
+if %ERRORLEVEL% EQU 1223 goto :CANCEL
+
+Echo.
+echo Finalized Game Tile : %fdrnm%
+
+REM Selecting Image file
+echo.
+echo Please Select Image file (.png or .jpg or .jpeg) (cropped in squared)
+@echo off
+
+rem preparation command
+
+set pwshcmd=powershell -NoP -C "[System.Reflection.Assembly]::LoadWithPartialName('System.windows.forms')|Out-Null;$OFD = New-Object System.Windows.Forms.OpenFileDialog; $OFD.Title = 'Select Image file'; $OFD.Filter = 'Image File (*.png,.*jpg)| *.png;*.jpg;*.jpeg'; $OFD.InitialDirectory = 'D:\'; $OFD.ShowDialog()|out-null;$OFD.FileName"
+
+rem exec commands powershell and get result in FileName variable
+for /f "delims=" %%I in ('%pwshcmd%') do (
+	set "Img=%%I"
+	set "Imgnm=%%~nI"
+	set "Imgext=%%~xI"
+	)
+	
+rem if [%Img%]==[] goto :CANCEL
+	
+echo Selected Image File : %Img%
+
+
+REM copy image to game dir
+
+echo f|xcopy "%Img%" "%cl%!fnm!%Imgext%" /y /c /f
+
+
+
+REM Create XML visual File(DONE)
+echo.
+echo Creating Tile...
+set \t=  
+
+(
+echo ^<?xml version="1.0" encoding="UTF-8"?^>
+echo.^<Application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"^>
+echo.%\t%^<VisualElements BackgroundColor="#000000" ShowNameOnSquare150x150Logo="off" ForegroundText="dark" Square150x150Logo="!fnm!!Imgext!" Square70x70Logo="!fnm!!imgext!"/^>
+echo.^</Application^>
+) > "%cl%!fnm!.visualelementsmanifest.xml"
+
+echo.
+echo Manifest created DONE....
+
+
+rem creating shortcut in startmenu
+echo.
+echo Creating Shortcut in Startmenu
+echo.
+
+set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
+
+echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo sLinkFile = "%cl%!fdrnm!.lnk" >> %SCRIPT%
+echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo oLink.TargetPath = "%fnm1%" >> %SCRIPT%
+echo oLink.Save >> %SCRIPT%
+
+cscript /nologo %SCRIPT%
+del %SCRIPT%
+
+echo f|xcopy/y /c /f "%cl%!fdrnm!.lnk" "%AppData%\Microsoft\Windows\Start Menu\Programs\Games\"
+echo.
+Echo Shortcut Created Games\!fdrnm!
+echo.
+goto :DONE
+pause
+
+:CANCEL
+echo You canceled
+pause
+goto :DONE
+
+:DONE
+endlocal

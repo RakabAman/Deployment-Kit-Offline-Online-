@@ -1,0 +1,17 @@
+@echo off
+CD /d %~dp0
+
+rem ---------------------------------------
+rem Get folder/App name
+for %%a in (.) do set appname=%%~na
+rem ------------------------------------
+
+rem Installing .exe files
+
+echo Installing %appname%
+
+for /r %%G in (*.exe) Do start /wait /b "" "%%G" /q
+
+if %errorlevel% == 0 (Echo Installation Successfully) else echo Installation Failed %errorlevel%
+	
+timeout -t 03

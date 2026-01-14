@@ -1,0 +1,15 @@
+@echo off
+
+set "path=%~dp1"
+set "name=%~n1"
+
+echo %path%
+echo %name%
+
+cd %path%
+
+dir /b /on > %name%.txt
+
+Echo directory list Created in %path%
+
+timeout /t 05
